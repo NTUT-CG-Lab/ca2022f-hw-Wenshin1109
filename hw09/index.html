@@ -203,14 +203,15 @@
   <div class="row hw12">
     <div class="col-md-12 twenty">
       Assets截圖，請放在 src 檔案夾。
-      <input type="button" name="back" onclick="parent.location='./src/111598001.png'" value="按我喔(´・ω・`)">
+      <input type="button" name="back" onclick="parent.location='./src/assets.png'" value="看assets按我(ゝ∀･)">
+      <input type="button" name="back" onclick="parent.location='./src/download.png'" value="看download按我(´▽`ʃ♡ƪ)">
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      建一堆攝影機好好玩喔:D
+      MMD讚喔:D 我超想用我喜歡的Vtuber的MMD但是作者沒公開QAQ
     </div>
   </div>
 
@@ -225,31 +226,26 @@
           <th>分項描述</th>
         </tr>
         <tr>
-          <td rowspan="5" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked="checked"></td>
+          <td rowspan="4" id="myTotal"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked="checked" ></td>
           <td id='m1'>1</td>
-          <td>將場景匯入unity</td>
+          <td>將 MMD4Mecanim 匯入至 Unity</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked="checked"></td>
-          <td id='m2'>2</td>
-          <td>MMD模型匯入並建立角色動畫</td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked="checked" ></td>
+          <td id='m2'>1</td>
+          <td>將 MMD 模型跟材質拉進去 Unity</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked="checked"></td>
-          <td id='m3'>2</td>
-          <td>設置至少三個分鏡</td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked="checked" ></td>
+          <td id='m3'>4</td>
+          <td>將壓縮檔內的MMD模型(PMX格式)轉換為FBX格式</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked="checked"></td>
-          <td id='m4'>3</td>
-          <td>使用軌道攝影機至少繞一圈</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked="checked" ></td>
-          <td id='m5'>2</td>
-          <td>更換其他場景、豐富的運鏡</td>
-        </tr>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked="checked" ></td>
+          <td id='m4'>4</td>
+          <td>新增其他MMD模型進行轉檔</td>
+        </tr> 
       </table>
     </div>
   </div>
@@ -257,7 +253,10 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <iframe width="1344" height="756" src="https://www.youtube.com/embed/vNTfOnh2xXA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!-- <iframe width="1344" height="756" src="https://www.youtube.com/embed/vNTfOnh2xXA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      <video id="video1" style="width:100%;max-width:100%;" controls="">
+        <source src="video/111598001.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
@@ -277,7 +276,6 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
 
   update();
   
@@ -301,9 +299,6 @@
       score += parseInt(d3.select('#m4').html());   
     }
 
-    if (d3.select("#myCheckbox5").property("checked")){
-      score += parseInt(d3.select('#m5').html());   
-    }
 
     d3.select("#myTotal").html(score);    
   }
