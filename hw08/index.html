@@ -195,22 +195,22 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <h1>作業 10</h1>
+      <h1>作業 08</h1>
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      Timeline截圖，請放在 src 檔案夾。
-      <input type="button" name="back" onclick="parent.location='./src/111598001.png'" value="按我喔(´・ω・`)">
+      作業程式碼，請放在 src 檔案夾。
+      <input type="button" name="back" onclick="window.location.href='https://github.com/NTUT-CG-Lab/ca2022f-hw-Wenshin1109/tree/main/hw08'" value="按我喔(´・ω・`)">
     </div>
   </div>
 
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      建一堆攝影機好好玩喔:D
+      魔鬼藏在細節裡:( 每次的bug都是出在一些小地方ww
     </div>
   </div>
 
@@ -225,31 +225,27 @@
           <th>分項描述</th>
         </tr>
         <tr>
-          <td rowspan="5" id="myTotal"></td>
+          <td rowspan="4" id="myTotal"></td>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked="checked"></td>
-          <td id='m1'>1</td>
-          <td>將場景匯入unity</td>
+          <td id='m1'>3</td>
+          <td>角色能做單一動作</td>
         </tr>
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked="checked"></td>
-          <td id='m2'>2</td>
-          <td>MMD模型匯入並建立角色動畫</td>
+          <td id='m2'>3</td>
+          <td>角色能夠做多個動作，切換自如</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked="checked"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3"></td>
           <td id='m3'>2</td>
-          <td>設置至少三個分鏡</td>
+          <td>在 Game 模式中可以按滑鼠右鍵旋轉視角，觀看不同動作</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked="checked"></td>
-          <td id='m4'>3</td>
-          <td>使用軌道攝影機至少繞一圈</td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" /></td>
+          <td id='m4'>2</td>
+          <td>在 Game 模式中可以按滑鼠滾輪放大，觀看不同動作 </td>
         </tr>
-        <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked="checked" ></td>
-          <td id='m5'>2</td>
-          <td>更換其他場景、豐富的運鏡</td>
-        </tr>
+
       </table>
     </div>
   </div>
@@ -257,7 +253,9 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <iframe width="1344" height="756" src="https://www.youtube.com/embed/vNTfOnh2xXA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <video id="video1" style="width:100%;max-width:100%;" controls="">
+        <source src="video/111598001.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
@@ -277,7 +275,6 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
 
   update();
   
@@ -299,11 +296,8 @@
 
     if (d3.select("#myCheckbox4").property("checked")){
       score += parseInt(d3.select('#m4').html());   
-    }
-
-    if (d3.select("#myCheckbox5").property("checked")){
-      score += parseInt(d3.select('#m5').html());   
-    }
+    } 
+    
 
     d3.select("#myTotal").html(score);    
   }
